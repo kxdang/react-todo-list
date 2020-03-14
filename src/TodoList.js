@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import NewTodoForm from "./NewTodoForm";
 import Todo from "./Todo";
-
+import "./TodoList.css";
 export default class TodoList extends Component {
   constructor(props) {
     super(props);
@@ -57,8 +57,10 @@ export default class TodoList extends Component {
       />
     ));
     return (
-      <div>
-        <h1>Todo List!</h1>
+      <div className="TodoList">
+        <h1>
+          Todo List! <span>A simple react app by Kien Dang</span>
+        </h1>
         <ul>{todoList}</ul>
         <NewTodoForm createTodo={this.create} />
       </div>
