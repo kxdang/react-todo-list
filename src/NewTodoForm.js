@@ -16,7 +16,7 @@ export default class NewTodoForm extends Component {
 
   handleSubmit(evt) {
     evt.preventDefault();
-    const newTodo = { ...this.state, id: uuid() };
+    const newTodo = { ...this.state, id: uuid(), completed: false };
     this.props.createTodo(newTodo); //always pass the data through this type of pattern
     this.setState({ task: "" });
   }
