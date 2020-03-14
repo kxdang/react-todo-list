@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import uuid from "uuid/v4";
 
 export default class NewTodoForm extends Component {
   constructor(props) {
@@ -15,7 +16,8 @@ export default class NewTodoForm extends Component {
 
   handleSubmit(evt) {
     evt.preventDefault();
-    this.props.createTodo(this.state); //always pass the data through this type of pattern
+    const newTodo = { ...this.state, id: uuid() };
+    this.props.createTodo(newTodo); //always pass the data through this type of pattern
     this.setState({ task: "" });
   }
 
