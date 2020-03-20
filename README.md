@@ -20,7 +20,7 @@ A simple React To do list.
 - Passing props from parent to child
 - Invoking methods from child to parent (data upward flow)
 
-## 👨‍🎓Codepen CSS:
+## Codepen CSS:
 
 CSS Style came from Sawsan's [Codepen](https://codepen.io/saawsan/pen/jayzeq)
 
