@@ -5,7 +5,9 @@ import "./TodoList.css";
 export default class TodoList extends Component {
   constructor(props) {
     super(props);
-    this.state = { todos: JSON.parse(window.localStorage.getItem("todos" || [])) };
+    this.state = {
+      todos: JSON.parse(window.localStorage.getItem("todos") || "[]")
+    };
     this.create = this.create.bind(this);
     this.remove = this.remove.bind(this);
     this.updateTodo = this.updateTodo.bind(this);
@@ -13,15 +15,23 @@ export default class TodoList extends Component {
   }
 
   create(newTodo) {
-    this.setState({
-      todos: [...this.state.todos, newTodo]
-    }, () => window.localStorage.setItem("todos", JSON.stringify(this.state.todos)));
+    this.setState(
+      {
+        todos: [...this.state.todos, newTodo]
+      },
+      () =>
+        window.localStorage.setItem("todos", JSON.stringify(this.state.todos))
+    );
   }
 
   remove(id) {
-    this.setState({
-      todos: this.state.todos.filter(todo => todo.id !== id)
-    }, () => window.localStorage.setItem("todos", JSON.stringify(this.state.todos)));
+    this.setState(
+      {
+        todos: this.state.todos.filter(todo => todo.id !== id)
+      },
+      () =>
+        window.localStorage.setItem("todos", JSON.stringify(this.state.todos))
+    );
   }
 
   updateTodo(id, updatedTask) {
@@ -31,7 +41,9 @@ export default class TodoList extends Component {
       }
       return todo;
     });
-    this.setState({ todos: updatedTodos }, () => window.localStorage.setItem("todos", JSON.stringify(this.state.todos)));
+    this.setState({ todos: updatedTodos }, () =>
+      window.localStorage.setItem("todos", JSON.stringify(this.state.todos))
+    );
   }
 
   toggleCompletion(id) {
@@ -41,7 +53,9 @@ export default class TodoList extends Component {
       }
       return todo;
     });
-    this.setState({ todos: updatedTodos }, () => window.localStorage.setItem("todos", JSON.stringify(this.state.todos)));
+    this.setState({ todos: updatedTodos }, () =>
+      window.localStorage.setItem("todos", JSON.stringify(this.state.todos))
+    );
   }
 
   render() {
